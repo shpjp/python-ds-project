@@ -1,4 +1,4 @@
-
+import os
 import numpy as np
 import pandas as pd
 
@@ -9,6 +9,9 @@ salary = (30000 + yoe * 6000 + np.random.normal(0, 4000, size=100)).round(2)
 data = {'YearsExperience': yoe, 'Salary': salary}
 
 df = pd.DataFrame(data)
+
+# ✅ Create the folder if it doesn't exist
+os.makedirs("ds", exist_ok=True)
 
 # Now save safely
 df.to_csv("ds/Salary_Data.csv", index=False)
